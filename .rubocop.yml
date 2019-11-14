@@ -52,7 +52,7 @@ Layout/EmptyLinesAroundModuleBody:
 Layout/IndentationConsistency:
   EnforcedStyle: rails
 
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 
 Layout/SpaceInLambdaLiteral:

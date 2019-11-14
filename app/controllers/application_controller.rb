@@ -2,7 +2,8 @@ require 'net/http'
 require 'uri'
 
 class ApplicationController < ActionController::Base
-  # caches_page :download, :submit
+
+  caches_page :download, :submit
 
   def index
     @resources = {
@@ -47,7 +48,7 @@ class ApplicationController < ActionController::Base
     @topics = @lectures.collect { |r| r['Topics'] }.flatten.uniq
     @audiences = @lectures.collect { |r| r['Audience'] }.uniq
   end
-  
+
   def download
     path = params[:file]
     filename = "#{File.basename(path)}.#{params[:format]}"
@@ -55,7 +56,7 @@ class ApplicationController < ActionController::Base
     type = MIME::Types.type_for(filename).first.content_type
     data = Net::HTTP.get(URI.parse("https://dl.airtable.com/.attachments/#{path}.#{params[:format]}"))
     send_data data, filename: filename, type: type, disposition: 'inline'
-  end 
+  end
 
   def submit
     # Do nothing

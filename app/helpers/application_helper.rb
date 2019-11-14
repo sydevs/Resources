@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  COLORS = %i[red orange yellow olive green teal blue violet purple pink brown]
+  COLORS = %i[red orange yellow olive green teal blue violet purple pink brown].freeze
   SUBMISSION_URLS = {
     document: nil,
     guide: nil,
@@ -8,7 +8,7 @@ module ApplicationHelper
     lecture: 'https://airtable.com/embed/shryw0V7ZaCEzQf7a',
     marketing: 'https://airtable.com/embed/shrMButMgMmKxHYgw',
     material: 'https://airtable.com/embed/shrXsEa3X2DQZZMqg',
-  }
+  }.freeze
 
   def color_by_index key, order
     COLORS[order.index(key)]
