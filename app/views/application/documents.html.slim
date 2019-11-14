@@ -1,0 +1,26 @@
+
+- content_for(:menu) do
+  - if @types.count > 1
+    .item
+      .header Types
+      .menu
+        - @types.each do |type|
+          a.item data-filter=".type--#{type.parameterize.dasherize}"
+            = type
+  - else
+    .item
+
+main id='js-grid' data-layout='vertical'
+  - @documents.each do |document|
+    - classes = ['js-item']
+    - classes << color_by_index(document['Type'], @types) if @types.count > 1
+    - classes << "type--#{document['Type'].parameterize.dasherize}" if document['Type']
+
+    a.ui.horizontal.link.card class=classes href=download_path(document['Attachments'][0]['url']) target='_blank'
+      .content
+        .header = document['Name']
+        .meta
+          span.year = document['Year']
+          span.authors = document['Authors']
+        .description
+          p = document['Description']

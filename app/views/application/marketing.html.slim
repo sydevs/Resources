@@ -1,0 +1,40 @@
+
+- content_for(:menu) do
+  - if @formats.count > 1
+    .item
+      .header Format
+      .menu
+        - @formats.each do |format|
+          a.item data-filter=".format--#{format.parameterize.dasherize}"
+            = format
+
+main id='js-grid' data-layout='masonry'
+  - @marketing.each do |marketing|
+    - classes = ['js-item']
+    - classes << color_by_index(marketing['Format'], @formats) if @formats.count > 1
+    - classes << "format--#{marketing['Format'].parameterize.dasherize}" if marketing['Format']
+
+    .ui.link.card class=classes
+      .image
+        img src=marketing['Preview'][0]['thumbnails']['large']['url']
+      .content
+        = marketing['Name']
+
+      .ui.basic.modal class='js-modal'
+        i.close.icon
+        .header = marketing['Name']
+        .image.content
+          img.image src=marketing['Attachments'][0]['thumbnails']['large']['url']
+          .description
+            .ui.basic.labels
+              .ui.label class=color_by_index(marketing['Format'], @formats)
+                = marketing['Format']
+
+            = simple_format marketing['Description']
+            .ui.small.header Download Links
+            ul.ui.list
+              - marketing['Attachments'].each do |attachment|
+                li.item
+                  a href=download_path(attachment['url']) target='_blank'
+                    = attachment['filename']
+                  |  - #{(attachment['size'] / 1.0.megabyte).round(2)}MB

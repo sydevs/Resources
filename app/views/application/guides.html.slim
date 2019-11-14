@@ -1,0 +1,25 @@
+
+- content_for(:menu) do
+  - if @topics.count > 1
+    .item
+      .header Topics
+      .menu
+        - @topics.each do |topic|
+          a.item data-filter=".topic--#{topic.parameterize.dasherize}"
+            = topic
+  - else
+    .item
+
+main id='js-grid' data-layout='vertical'
+  - @guides.each do |guide|
+    - classes = ['js-item']
+    - guide['Topics']&.each do |topic|
+      - classes << "topic--#{topic.parameterize.dasherize}"
+
+    a.ui.horizontal.link.card class=classes href=download_path(guide['Document'][0]['url']) target='_blank'
+      .content
+        .header = guide['Name']
+        .meta
+          span.topics = guide['Topics'].join(', ')
+        .description
+          p = guide['Description']

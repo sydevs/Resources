@@ -1,0 +1,32 @@
+
+- content_for(:menu) do
+  - if @audiences.count > 1
+    .item
+      .header Audience
+      .menu
+        - @audiences.each do |audience|
+          a.item data-filter=".audience--#{audience.parameterize.dasherize}"
+            = audience
+  - if @topics.count > 1
+    .item
+      .header Topics
+      .menu
+        - @topics.each do |topic|
+          a.item data-filter=".topic--#{topic.parameterize.dasherize}"
+            = topic
+
+main id='js-grid' data-layout='masonry'
+  - @lectures.each do |lecture|
+    - classes = ['js-item']
+    - classes << color_by_index(lecture['Audience'], @audiences) if @audiences.count > 1
+    - classes << "audience--#{lecture['Audience'].parameterize.dasherize}" if lecture['Audience']
+    - lecture['Topics']&.each do |topic|
+      - classes << "topic--#{topic.parameterize.dasherize}"
+
+    a.ui.link.card class=classes href=lecture.embed_url data-lity=true target='_blank'
+      .image
+        img src=lecture.thumbnail_url
+      .content
+        = lecture['Name']
+      .extra.content
+        = [lecture['Audience'], lecture['Topics']].join(' - ')

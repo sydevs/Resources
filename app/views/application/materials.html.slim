@@ -1,0 +1,61 @@
+
+- content_for(:menu) do
+  - if @formats.count > 1
+    .item
+      .header Format
+      .menu
+        - @formats.each do |format|
+          a.item data-filter=".format--#{format.parameterize.dasherize}"
+            = format
+  - if @purposes.count > 1
+    .item
+      .header Purpose
+      .menu
+        - @purposes.each do |purpose|
+          a.item data-filter=".purpose--#{purpose.parameterize.dasherize}"
+            = purpose
+  - if @audiences.count > 1
+    .item
+      .header Audience
+      .menu
+        - @audiences.each do |audience|
+          a.item data-filter=".audience--#{audience.parameterize.dasherize}"
+            = audience
+
+main id='js-grid' data-layout='masonry'
+  - @materials.each do |material|
+    - classes = ['js-item']
+    - classes << color_by_index(material['Format'], @formats) if @formats.count > 1
+    - classes << "format--#{material['Format'].parameterize.dasherize}" if material['Format']
+    - classes << "purpose--#{material['Purpose'].parameterize.dasherize}" if material['Purpose']
+    - classes << "audience--#{material['Audience'].parameterize.dasherize}" if material['Audience']
+
+    .ui.link.card class=classes
+      .image
+        img src=material['Preview'][0]['thumbnails']['large']['url']
+      .content
+        = material['Name']
+
+      .ui.basic.modal class='js-modal'
+        i.close.icon
+        .header = material['Name']
+        .image.content
+          img.image src=material['Attachments'][0]['thumbnails']['large']['url']
+          .description
+            .ui.basic.labels
+              - if material['Format']
+                .ui.label class=color_by_index(material['Format'], @formats)
+                  = material['Format']
+              - if material['Purpose']
+                .ui.label Purpose - #{material['Purpose']}
+              - if material['Audience']
+                .ui.label Audience - #{material['Audience']}
+
+            = simple_format material['Description']
+            .ui.small.header Download Links
+            ul.ui.list
+              - material['Attachments'].each do |attachment|
+                li.item
+                  a href=download_path(attachment['url']) target='_blank'
+                    = attachment['filename']
+                  |  - #{(attachment['size'] / 1.0.megabyte).round(2)}MB

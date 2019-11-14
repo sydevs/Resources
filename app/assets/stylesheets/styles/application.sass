@@ -1,0 +1,42 @@
+@import 'semantic-ui'
+
+.ui.content.container
+  padding-right: 192px
+
+.ui.right.rail
+  padding: 0
+  width: calc(192px - 2rem)
+
+iframe
+  border: 0
+  background: transparent
+  width: 100vw
+  height: 99.5vh
+
+.ui.center.aligned.segment > .ui.vertical.menu
+  margin: auto
+  text-align: left
+  width: 15rem
+  text-transform: capitalize
+
+.ui.modal
+  .image.content > .image
+    @media (min-width: 768px)
+      max-width: 30%
+
+    @media (max-width: 768px)
+      max-height: 300px
+
+  .ui.basic.labels > .label
+    background: none
+
+.ui.basic.modal
+  background: transparentize(white, 0.4)
+  box-shadow: 0px 0px 40px 20px transparentize(white, 0.4) !important
+
+[data-lity],
+[data-lity] > *
+  cursor: zoom-in
+
+a.ui.card
+  color: inherit

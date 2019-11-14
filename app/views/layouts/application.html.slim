@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+    title Resources
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    - if content_for?(:menu)
+      .ui.header.container
+        .ui.basic.segment
+          a.ui.small.header href=root_url
+            i.seedling.icon
+            .content
+              | Sahaj Resources
+              .sub.header This is a site for sahaj resources.
+
+          .ui.stackable.secondary.menu
+            - %w[Materials Marketing Lectures Guides Images Documents].each do |category|
+              a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
+                = category
+
+      .ui.content.container
+        .ui.basic.segment
+          .ui.right.rail
+            .ui.hidden.divider
+            - if submission_form_url(action_name)
+              a.ui.button href=submit_path(type: action_name) target='_blank'
+                | Submit #{action_name.humanize.singularize}
+            .ui.vertical.text.menu
+              = content_for(:menu)
+
+        = yield
+    - else
+      = yield

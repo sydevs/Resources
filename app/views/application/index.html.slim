@@ -1,0 +1,15 @@
+
+.ui.text.container
+  .ui.basic.center.aligned.segment
+    .ui.icon.header
+      i.seedling.icon
+      | Sahaj Resources Catalog
+      .sub.header This is a website of resources for spreading Sahaja Yoga.
+
+    .ui.section.divider
+
+    .ui.large.vertical.secondary.menu
+      - @resources.each do |name, count|
+        a.item href=url_for([name.downcase])
+          .ui.label = count
+          = name.to_s.humanize
