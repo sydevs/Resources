@@ -3,7 +3,7 @@ require 'uri'
 
 class ApplicationController < ActionController::Base
 
-  caches_page :download, :submit
+  caches_action :download, :submit
 
   def index
     @resources = {
