@@ -18,7 +18,7 @@ html
               .sub.header This is a site for sahaj resources.
 
           .ui.stackable.secondary.menu
-            - %w[Materials Marketing Lectures Guides Images Documents].each do |category|
+            - %w[Materials Marketing Lectures Guides Images Documents Digital].each do |category|
               a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
                 = category
 

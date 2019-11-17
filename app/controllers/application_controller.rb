@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
       guides: Guide.approved.count,
       images: Image.all.count,
       documents: Document.all.count,
+      digital: Digital.all.count,
     }
   end
 
@@ -47,6 +48,10 @@ class ApplicationController < ActionController::Base
     @lectures = Lecture.approved
     @topics = @lectures.collect { |r| r['Topics'] }.flatten.uniq
     @audiences = @lectures.collect { |r| r['Audience'] }.uniq
+  end
+
+  def digital
+    @digital = Digital.all
   end
 
   def download

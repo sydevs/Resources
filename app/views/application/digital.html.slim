@@ -1,0 +1,15 @@
+
+- content_for(:menu) do
+  .item
+
+main id='js-grid' data-layout='vertical'
+  - @digital.each do |digital|
+    - classes = ['js-item']
+
+    a.ui.horizontal.link.card class=classes href=digital['Web URL'] target='_blank'
+      .content
+        .header = digital['Name']
+        .meta
+          span.url = digital['Web URL']
+        .description
+          p = digital['Description']
