@@ -7,7 +7,7 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = render 'favicons'
+    = render 'layouts/favicons'
   body
     - if content_for?(:menu)
       .ui.header.container
