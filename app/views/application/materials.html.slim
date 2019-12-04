@@ -40,7 +40,10 @@ main id='js-grid' data-layout='masonry'
         i.close.icon
         .header = material['Name']
         .image.content
-          img.image src=material['Attachments'][0]['thumbnails']['large']['url']
+          - if defined?(img.image src=material['Attachments'][0]['thumbnails']['large']['url'])
+            img.image src=material['Attachments'][0]['thumbnails']['large']['url']
+          - else
+            img.image src=material['Preview'][0]['thumbnails']['large']['url']
           .description
             .ui.basic.labels
               - if material['Format']

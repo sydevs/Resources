@@ -24,7 +24,10 @@ main id='js-grid' data-layout='masonry'
         i.close.icon
         .header = marketing['Name']
         .image.content
-          img.image src=marketing['Attachments'][0]['thumbnails']['large']['url']
+          - if defined?(img.image src=marketing['Attachments'][0]['thumbnails']['large']['url'])
+            img.image src=marketing['Attachments'][0]['thumbnails']['large']['url']
+          - else
+            img.image src=marketing['Preview'][0]['thumbnails']['large']['url']
           .description
             .ui.basic.labels
               .ui.label class=color_by_index(marketing['Format'], @formats)
