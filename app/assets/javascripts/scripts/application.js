@@ -6,10 +6,10 @@ const Application = {
   load: function() {
     console.log('Load JavaScript') // eslint-disable-line no-console
     
-    $('.ui.sticky').sticky()
     $('.ui.dropdown').dropdown()
 
     const grid = document.getElementById('js-grid')
+    
     if (grid) {
       Application.grid = new Grid(grid)
     }
@@ -18,7 +18,7 @@ const Application = {
   unload: function() {
     if (Application.grid) {
       Application.grid.unload()
-      Application.griid = null
+      Application.grid = null
     }
   },
 

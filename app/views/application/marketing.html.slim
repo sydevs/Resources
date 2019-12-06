@@ -1,23 +1,15 @@
 
 - content_for(:menu) do
-  - if @formats.count > 1
-    .item
-      .header Format
-      .menu
-        - @formats.each do |format|
-          a.item data-filter=".format--#{format.parameterize.dasherize}"
-            = format
+  = filter_tag 'Format', @formats
 
 main id='js-grid' data-layout='masonry'
-  - @marketing.each do |marketing|
-    - classes = ['js-item']
-    - classes << color_by_index(marketing['Format'], @formats) if @formats.count > 1
-    - classes << "format--#{marketing['Format'].parameterize.dasherize}" if marketing['Format']
+  .js-grid-sizer
 
-    .ui.link.card class=classes
-      .image
+  - @marketing.each do |marketing|
+    .item class=item_classes(marketing, %w[Format])
+      .ui.rounded.bordered.image
         img src=marketing['Preview'][0]['thumbnails']['large']['url']
-      .content
+      .title
         = marketing['Name']
 
       .ui.basic.modal class='js-modal'
@@ -25,9 +17,9 @@ main id='js-grid' data-layout='masonry'
         .header = marketing['Name']
         .image.content
           - if defined?(img.image src=marketing['Attachments'][0]['thumbnails']['large']['url'])
-            img.image src=marketing['Attachments'][0]['thumbnails']['large']['url']
+            img.ui.rounded.image src=marketing['Attachments'][0]['thumbnails']['large']['url']
           - else
-            img.image src=marketing['Preview'][0]['thumbnails']['large']['url']
+            img.ui.rounded.image src=marketing['Preview'][0]['thumbnails']['large']['url']
           .description
             .ui.basic.labels
               .ui.label class=color_by_index(marketing['Format'], @formats)

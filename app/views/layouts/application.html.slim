@@ -9,7 +9,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = render 'layouts/favicons'
   body
-    - if content_for?(:menu)
+    /- if content_for?(:menu)
       .ui.header.container
         .ui.basic.segment
           a.ui.small.header href=root_url
@@ -17,12 +17,10 @@ html
             .content
               | Sahaj Resources
               .sub.header This is a site for sahaj resources.
-
           .ui.stackable.secondary.menu
             - %w[Materials Marketing Lectures Guides Images Documents Digital].each do |category|
               a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
                 = category
-
       .ui.content.container
         .ui.basic.segment
           .ui.right.rail
@@ -33,6 +31,33 @@ html
             .ui.vertical.text.menu
               = content_for(:menu)
 
+    - if action_name != 'index'
+      .ui.hidden.divider
+
+      .ui.header.container
+        a.ui.small.header href=root_url
+          i.seedling.icon
+          .content
+            | Sahaj Resources
+            .sub.header This is a site for sahaj resources.
+
+        .ui.stackable.secondary.pointing.menu
+          - %w[Materials Marketing Lectures Guides Images Documents Digital].each do |category|
+            a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
+              = category
+
+        - if content_for?(:menu)
+          .ui.stackable.text.menu
+            .header.item Showing Items For
+            = content_for(:menu)
+
+            - if submission_form_url(action_name)
+              .right.menu
+                a.item href=submit_path(type: action_name) target='_blank'
+                  i.upload.icon
+                  | Submit #{action_name.humanize.singularize}
+
+      .ui.container
         = yield
     - else
       = yield

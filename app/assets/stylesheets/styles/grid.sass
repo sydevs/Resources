@@ -1,8 +1,79 @@
 
+main#js-grid *
+  transition: all 0.25s ease
+
+/* ===== MASONRY GRID ===== */
+main#js-grid[data-layout='masonry']
+  > .js-grid-sizer,
+  > .item
+    width: 100%
+
+    @media (min-width: 480px)
+      width: 50%
+
+    @media (min-width: 768px)
+      width: 233.35px
+
+  > .item
+    cursor: pointer
+    padding: 8px
+
+    .title
+      padding: 5px 2px
+      opacity: 0.8
+
+    .duration
+      position: absolute
+      top: 12px
+      right: 12px
+      padding: 2px 4px
+      background: transparentize(black, 0.5)
+      border-radius: 0.3125em
+      font-size: 12px
+      color: white
+
+    &:hover
+      .title
+        opacity: 1
+
+      img
+        border-color: transparentize(black, 0.6)
+
+/* ===== VERTICAL GRID ===== */
+main#js-grid.items[data-layout='vertical']
+  > .item
+    width: 100%
+    max-width: 700px
+
+  > .item
+    cursor: pointer
+    padding: 12px
+    border: 1px solid transparentize(black, 0.9)
+    border-radius: 0.3125em
+    margin: 0
+    margin-bottom: 1em
+
+    &:hover
+      border-color: transparentize(black, 0.6)
+
+    .header
+      margin-top: 0.2em
+
 main#js-grid
+  position: relative
+  width: 100%
+
   > .ui.card,
   > .ui.image
     margin: 5px !important
+    width: 100%
+
+    @media (min-width: 480px)
+      width: 50%
+
+    @media (min-width: 768px)
+      width: 25%
+
 
   > .ui.link.card
     transition-property: box-shadow, margin

@@ -52,6 +52,7 @@ class ApplicationController < ActionController::Base
 
   def digital
     @digital = Digital.all
+    @types = @digital.collect { |r| r['Type'] }.uniq
   end
 
   def download

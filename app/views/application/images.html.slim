@@ -1,23 +1,14 @@
 
 - content_for(:menu) do
-  - if @types.count > 1
-    .item
-      .header Types
-      .menu
-        - @types.each do |type|
-          a.item data-filter=".type--#{type.parameterize.dasherize}"
-            = type
-  - else
-    .item
+  = filter_tag 'Type', @types
 
 main id='js-grid' data-layout='masonry'
-  - @images.each do |image|
-    - classes = ['js-item']
-    - classes << "type--#{image['Type'].parameterize.dasherize}" if image['Type']
+  .js-grid-sizer
 
-    a.ui.card class=classes href=image['Photos'][0]['url'] data-lity=true
-      .image
+  - @images.each do |image|
+    .item class=item_classes(image, %w[Type])
+      .ui.rounded.bordered.image
         img src=image['Photos'][0]['thumbnails']['large']['url']
-      - if image['Caption']
-        .content
-          = image['Caption']
+      .title
+        = image['Caption']
+
