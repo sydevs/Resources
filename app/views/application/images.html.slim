@@ -6,7 +6,7 @@ main id='js-grid' data-layout='masonry'
   .js-grid-sizer
 
   - @images.each do |image|
-    .item class=item_classes(image, %w[Type])
+    .item class=item_classes(image, %w[Type]) href=image['Photos'][0]['url'] data-lity=true
       .ui.rounded.bordered.image
         img src=image['Photos'][0]['thumbnails']['large']['url']
       .title

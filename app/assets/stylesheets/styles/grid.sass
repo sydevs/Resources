@@ -40,11 +40,12 @@ main#js-grid[data-layout='masonry']
         border-color: transparentize(black, 0.6)
 
 /* ===== VERTICAL GRID ===== */
-main#js-grid.items[data-layout='vertical']
+main#js-grid[data-layout='vertical']
   > .item
     width: 100%
     max-width: 700px
 
+main#js-grid.items[data-layout='vertical']
   > .item
     cursor: pointer
     padding: 12px
@@ -59,29 +60,16 @@ main#js-grid.items[data-layout='vertical']
     .header
       margin-top: 0.2em
 
-main#js-grid
-  position: relative
-  width: 100%
+main#js-grid.list[data-layout='vertical']
+  > .item
+    color: rgba(0, 0, 0, 0.87)
 
-  > .ui.card,
-  > .ui.image
-    margin: 5px !important
-    width: 100%
+    .meta
+      opacity: 0.8
 
-    @media (min-width: 480px)
-      width: 50%
-
-    @media (min-width: 768px)
-      width: 25%
-
-
-  > .ui.link.card
-    transition-property: box-shadow, margin
-
+    .description
+      margin-top: 0.2em
+  
     &:hover
-      transform: none
-      margin-top: -3px !important
-
-  > .ui.horizontal.card
-    width: 700px
-    max-width: 100%
+      .header
+        color: #4183C4

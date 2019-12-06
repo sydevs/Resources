@@ -1,6 +1,20 @@
 module ApplicationHelper
 
   COLORS = %i[red orange yellow olive green teal blue violet purple pink brown].freeze
+
+  PRIORITY_TOPICS = [
+    "Left Side",
+    "Right Side",
+    "Mooladhara",
+    "Swadhistan",
+    "Nabhi",
+    "Void",
+    "Anahat",
+    "Vishuddhi",
+    "Agnya",
+    "Sahasrara",
+  ].freeze
+
   SUBMISSION_URLS = {
     documents: nil,
     guides: nil,
@@ -26,7 +40,7 @@ module ApplicationHelper
   def filter_tag title, options
     return if options.empty?
 
-    content_tag :div, class: 'ui dropdown item' do
+    content_tag :div, class: 'ui scrolling dropdown item' do
       concat tag.div "#{title}:", class: 'title'
       concat tag.div 'All', class: 'default text'
       concat tag.i nil, class: 'dropdown icon'
@@ -64,6 +78,11 @@ module ApplicationHelper
     end
 
     classes
+  end
+
+  def reorder_topics topics
+    other_topics = topics - PRIORITY_TOPICS
+    (PRIORITY_TOPICS & topics) + other_topics
   end
 
 end

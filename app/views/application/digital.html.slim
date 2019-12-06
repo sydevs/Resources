@@ -2,9 +2,8 @@
 - content_for(:menu) do
   = filter_tag 'Type', @types
 
-main.ui.list id='js-grid' data-layout='vertical'
+main.ui.relaxed.list id='js-grid' data-layout='vertical'
   - @digital.each do |digital|
     a.item class=item_classes(digital, %w[Type]) href=digital['Web URL'] target='_blank'
       .header = digital['Name']
-      .meta = digital['Web URL']
-      p = digital['Description']
+      = digital['Description']
