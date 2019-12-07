@@ -38,7 +38,7 @@ module ApplicationHelper
   end
 
   def filter_tag title, options
-    return if options.empty?
+    return if options.length < 2
 
     content_tag :div, class: 'ui scrolling dropdown item' do
       concat tag.div "#{title}:", class: 'title'
