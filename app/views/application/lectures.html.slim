@@ -11,6 +11,7 @@ main id='js-grid' data-layout='masonry'
       .ui.rounded.bordered.fluid.image
         img src=lecture.thumbnail_url
       .duration
-        = Time.at(lecture['Duration'].to_i).utc.strftime("%M:%S")
+        = Time.at(lecture['Duration'].to_i).utc.strftime('%M:%S')
       .title
-        = lecture['Name']
+        div = lecture['Name']
+        div #{Time.at(lecture.start_seconds).utc.strftime('%M:%S')} - #{Time.at(lecture.end_seconds).utc.strftime('%M:%S')}

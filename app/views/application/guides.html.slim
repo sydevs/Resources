@@ -2,7 +2,7 @@
 - content_for(:menu) do
   = filter_tag 'Topics', @topics
 
-main.ui.items id='js-grid' data-layout='vertical'
+main.ui.relaxed.selection.list id='js-grid' data-layout='vertical'
   - @guides.each do |guide|
     a.item class=item_classes(guide, [], %w[Topics]) href=download_path(guide['Document'][0]['url']) target='_blank'
       .content

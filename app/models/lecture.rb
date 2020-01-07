@@ -15,24 +15,10 @@ class Lecture < Airrecord::Table
 
   def start_seconds
     self['Start Time']
-
-    # @start_seconds ||= begin
-    #  parts = self['Start Time'].split(':').map(&:to_i).reverse
-    #  seconds = parts[0]
-    #  seconds += parts[1] * 60 if parts.length > 1
-    #  seconds += parts[2] * 60 * 60 if parts.length > 2
-    # end
   end
 
   def end_seconds
     self['End Time']
-
-    # @end_seconds ||= begin
-    #  parts = self['End Time'].split(':').map(&:to_i).reverse
-    #  seconds = parts[0]
-    #  seconds += parts[1] * 60 if parts.length > 1
-    #  seconds += parts[2] * 60 * 60 if parts.length > 2
-    # end
   end
 
   def duration_seconds
@@ -44,7 +30,7 @@ class Lecture < Airrecord::Table
   end
 
   def embed_url
-    "https://www.youtube.com/embed/#{youtube_id}?start=#{start_seconds}&end=#{end_seconds}" if youtube_id.present?
+    "https://www.youtube.com/embed/#{youtube_id}?version=3&autoplay=1&start=#{start_seconds}&end=#{end_seconds}" if youtube_id.present?
   end
 
 end

@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  COLORS = %i[red orange yellow olive green teal blue violet purple pink brown].freeze
+  COLORS = %i[red green blue purple orange pink yellow teal violet brown olive].freeze
 
   PRIORITY_TOPICS = [
     "Left Side",
@@ -18,7 +18,7 @@ module ApplicationHelper
   SUBMISSION_URLS = {
     digital: 'https://airtable.com/shrrFcZEaxJCjoWzP',
     documents: 'https://airtable.com/shrbjcZF4xOyDg3Rq',
-    guides: nil,
+    guides: 'https://airtable.com/shr15CoKu6d56V10b',
     images: nil,
     lectures: 'https://airtable.com/embed/shryw0V7ZaCEzQf7a',
     marketing: 'https://airtable.com/embed/shrMButMgMmKxHYgw',
