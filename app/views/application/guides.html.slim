@@ -1,6 +1,6 @@
 
 - content_for(:menu) do
-  = filter_tag 'Topic', @topics
+  = filter_tag 'Topics', @topics
 
 main.ui.items id='js-grid' data-layout='vertical'
   - @guides.each do |guide|

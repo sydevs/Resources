@@ -4,12 +4,16 @@ main#js-grid *
 
 /* ===== MASONRY GRID ===== */
 main#js-grid[data-layout='masonry']
+  margin: auto
+
   > .js-grid-sizer,
   > .item
     width: 100%
+    max-width: 360px
 
     @media (min-width: 480px)
       width: 50%
+      max-width: none
 
     @media (min-width: 768px)
       width: 233.35px
@@ -17,6 +21,8 @@ main#js-grid[data-layout='masonry']
   > .item
     cursor: pointer
     padding: 8px
+    float: left
+    position: relative
 
     .title
       padding: 5px 2px

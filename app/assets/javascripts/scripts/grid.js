@@ -48,8 +48,8 @@ class Grid {
       this.filters[filterGroup] = filterSelector
     }
 
-    const filter_expression = $.map(this.filters, value => { return value }).join('')
-    this.$element.isotope({ filter: filter_expression.length > 0 ? filter_expression : '*' })
+    const filterExpression = $.map(this.filters, value => { return value }).join('')
+    this.$element.isotope({ filter: filterExpression.length > 0 ? filterExpression : '*' })
   }
 
   toggleFilter(filter) {
@@ -67,8 +67,8 @@ class Grid {
       this.filters[filterGroup] = filterSelector
     }
 
-    const filter_expression = $.map(this.filters, value => { return value }).join('')
-    this.$element.isotope({ filter: filter_expression.length > 0 ? filter_expression : '*' })
+    const filterExpression = $.map(this.filters, value => { return value }).join('')
+    this.$element.isotope({ filter: filterExpression.length > 0 ? filterExpression : '*' })
   }
 
 }

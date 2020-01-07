@@ -16,7 +16,8 @@ module ApplicationHelper
   ].freeze
 
   SUBMISSION_URLS = {
-    documents: nil,
+    digital: 'https://airtable.com/shrrFcZEaxJCjoWzP',
+    documents: 'https://airtable.com/shrbjcZF4xOyDg3Rq',
     guides: nil,
     images: nil,
     lectures: 'https://airtable.com/embed/shryw0V7ZaCEzQf7a',
@@ -73,7 +74,7 @@ module ApplicationHelper
 
       key = filter.parameterize.dasherize
       item[filter].each do |value|
-        classes << "#{key}--#{value}"
+        classes << "#{key}--#{value.parameterize.dasherize}"
       end
     end
 

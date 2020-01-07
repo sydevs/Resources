@@ -2,6 +2,7 @@ doctype html
 html
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+    meta name='viewport' content='width=device-width, initial-scale=1'
     title Resources
     = csrf_meta_tags
     = csp_meta_tag
@@ -19,13 +20,20 @@ html
             | Sahaj Resources
             .sub.header This is a site for sahaj resources.
 
-        .ui.stackable.secondary.pointing.menu
+        .ui.category.secondary.pointing.menu
           - %w[Materials Marketing Lectures Guides Images Documents Digital].each do |category|
             a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
               = category
 
+        .ui.category.fluid.floating.dropdown.basic.button
+          .text = action_name.titleize
+          .menu
+            - %w[Materials Marketing Lectures Guides Images Documents Digital].each do |category|
+              a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
+                = category
+
         - if content_for?(:menu)
-          .ui.stackable.text.menu
+          .ui.stackable.text.filter.menu
             .header.item Showing Items For
             = content_for(:menu)
 

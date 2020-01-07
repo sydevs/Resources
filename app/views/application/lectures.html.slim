@@ -1,7 +1,7 @@
 
 - content_for(:menu) do
   = filter_tag 'Audience', @audiences
-  = filter_tag 'Topic', reorder_topics(@topics)
+  = filter_tag 'Topics', reorder_topics(@topics)
 
 main id='js-grid' data-layout='masonry'
   .js-grid-sizer
