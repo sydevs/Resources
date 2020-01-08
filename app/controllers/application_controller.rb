@@ -7,13 +7,34 @@ class ApplicationController < ActionController::Base
 
   def index
     @resources = {
-      materials: Material.approved.count,
-      marketing: Marketing.approved.count,
-      lectures: Lecture.approved.count,
-      guides: Guide.approved.count,
-      images: Image.all.count,
-      documents: Document.all.count,
-      digital: Digital.all.count,
+      materials: {
+        description: "For giving public programs, exhibitions, and other presentations. \"How to meditate at home\" booklets, treatment handouts, materials for children, exhibitions, slideshows, chakra charts, etc.",
+        count: Material.approved.count,
+      },
+      marketing: {
+        description: "For booking or promoting public programs. Posters, business cards, brochures, etc.",
+        count: Marketing.approved.count,
+      },
+      lectures: {
+        description: "Excerpts of Mother's talks that are suitable for public programs. Categorized by topic and for beginner/intermediate/advanced seekers.",
+        count: Lecture.approved.count,
+      },
+      guides: {
+        description: "Guides on topics related to spreading Sahaja Yoga, such as Facebook advertising, 12-week courses, using Meetup effectively, tour organization, etc.",
+        count: Guide.approved.count,
+      },
+      images: {
+        description: "Photos of Shri Mataji, stock photos to use in new materials, logos, etc.",
+        count: Image.all.count,
+      },
+      documents: {
+        description: "Research on the impact of Sahaja Yoga.",
+        count: Document.all.count,
+      },
+      digital: {
+        description: "Links to high quality Sahaj websites and other digital resources.",
+        count: Digital.all.count,
+      },
     }
   end
 

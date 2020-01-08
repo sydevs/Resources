@@ -8,8 +8,24 @@
 
     .ui.section.divider
 
-    .ui.large.vertical.secondary.menu
-      - @resources.each do |name, count|
+    /.ui.large.vertical.secondary.menu
+      - @resources.each do |name, info|
         a.item href=url_for([name.downcase])
-          .ui.label = count
+          .ui.label = info[:count]
           = name.to_s.humanize
+
+    .ui.very.relaxed.selection.list
+      - @resources.first(3).each do |name, info|
+        a.item href=url_for([name.downcase])
+          .ui.basic.right.floated.label = info[:count]
+          .content
+            .header = name.to_s.humanize
+            .description = info[:description]
+
+    .ui.very.relaxed.selection.list
+      - @resources.drop(3).each do |name, info|
+        a.item href=url_for([name.downcase])
+          .ui.basic.right.floated.label = info[:count]
+          .content
+            .header = name.to_s.humanize
+            .description = info[:description]
