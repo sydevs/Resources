@@ -1,6 +1,15 @@
 doctype html
 html
   head
+    / Global site tag (gtag.js) - Google Analytics
+    - if Rails.env.production?
+      script async src='https://www.googletagmanager.com/gtag/js?id=UA-147161167-2'
+      javascript:
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-147161167-2');
+
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
     meta name='viewport' content='width=device-width, initial-scale=1'
     title Resources
