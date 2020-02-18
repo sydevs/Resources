@@ -8,12 +8,6 @@
 
     .ui.section.divider
 
-    /.ui.large.vertical.secondary.menu
-      - @resources.each do |name, info|
-        a.item href=url_for([name.downcase])
-          .ui.label = info[:count]
-          = name.to_s.humanize
-
     .ui.very.relaxed.selection.list
       - @resources.first(3).each do |name, info|
         a.item href=url_for([name.downcase])
@@ -36,4 +30,6 @@
       i.leaf.icon
       .content
         .header Welcome to the new Sahaja Resources website
-        p Sahaja Resources has been updated with a new simpler navigation, and the resources have been curated to include only professional quality designs. Please click one of the categories above to get started.
+        p Sahaja Resources has been updated with a new simpler navigation, and the resources have been curated to include only professional quality designs. Please click one of the categories above to find what you are looking for.
+    
+    p: em Many resources from the old Sahaja Resources website are being updated to improve the design, and are still being transfered to this new site. If you have any good quality materials, you can submit them on each category page.
