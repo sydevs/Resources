@@ -2,6 +2,8 @@
 - content_for(:menu) do
   = filter_tag 'Type', @types
 
+p.notice This is a listing of research papers on the benefits of Sahaja Yoga.
+
 main.ui.very.relaxed.selection.list id='js-grid' data-layout='vertical'
   - @documents.each do |document|
     a.item class=item_classes(document, %w[Type]) href=download_path(document['Attachments'][0]['url']) target='_blank'
