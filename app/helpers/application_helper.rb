@@ -18,11 +18,12 @@ module ApplicationHelper
   SUBMISSION_URLS = {
     digital: 'https://airtable.com/shrrFcZEaxJCjoWzP',
     documents: 'https://airtable.com/shrbjcZF4xOyDg3Rq',
-    guides: 'https://airtable.com/shr15CoKu6d56V10b',
-    images: nil,
+    guides: '',
+    images: 'https://airtable.com/shr6gMLDcKXvS02vA',
     lectures: 'https://airtable.com/embed/shryw0V7ZaCEzQf7a',
     marketing: 'https://airtable.com/embed/shrMButMgMmKxHYgw',
     materials: 'https://airtable.com/embed/shrXsEa3X2DQZZMqg',
+    contact: 'https://airtable.com/shr15CoKu6d56V10b',
   }.freeze
 
   def color_by_index key, order

@@ -9,70 +9,70 @@ class ApplicationController < ActionController::Base
     @resources = {
       materials: {
         description: "For giving public programs, exhibitions, and other presentations. \"How to meditate at home\" booklets, treatment handouts, materials for children, exhibitions, slideshows, chakra charts, etc.",
-        count: Material.approved.count,
+        count: Material.public.count,
       },
       marketing: {
         description: "For booking or promoting public programs. Posters, business cards, brochures, etc.",
-        count: Marketing.approved.count,
+        count: Marketing.public.count,
       },
       lectures: {
         description: "Excerpts of Mother's talks that are suitable for public programs. Categorized by topic and for beginner/intermediate/advanced seekers.",
-        count: Lecture.approved.count,
+        count: Lecture.public.count,
       },
       guides: {
         description: "Guides on topics related to spreading Sahaja Yoga, such as Facebook advertising, 12-week courses, using Meetup effectively, tour organization, etc.",
-        count: Guide.approved.count,
+        count: Guide.public.count,
       },
       images: {
         description: "Photos of Shri Mataji, stock photos to use in new materials, logos, etc.",
-        count: Image.all.count,
+        count: Image.public.count,
       },
       documents: {
         description: "Research on the impact of Sahaja Yoga.",
-        count: Document.all.count,
+        count: Document.public.count,
       },
       digital: {
         description: "Links to high quality Sahaj websites and other digital resources.",
-        count: Digital.all.count,
+        count: Digital.public.count,
       },
     }
   end
 
   def documents
-    @documents = Document.all
+    @documents = Document.public
     @types = @documents.collect { |r| r['Type'] }.uniq
   end
 
   def guides
-    @guides = Guide.approved
+    @guides = Guide.public
     @topics = @guides.collect { |r| r['Topics'] }.flatten.uniq
   end
 
   def images
-    @images = Image.all
+    @images = Image.public
     @types = @images.collect { |r| r['Type'] }.uniq
   end
 
   def marketing
-    @marketing = Marketing.approved
+    @marketing = Marketing.public
     @formats = @marketing.collect { |r| r['Format'] }.uniq
   end
 
   def materials
-    @materials = Material.approved
+    @materials = Material.public
     @formats = @materials.collect { |r| r['Format'] }.uniq
     @purposes = @materials.collect { |r| r['Purpose'] }.uniq
     @audiences = @materials.collect { |r| r['Audience'] }.uniq
   end
 
   def lectures
-    @lectures = Lecture.approved
+    @lectures = Lecture.public
     @topics = @lectures.collect { |r| r['Topics'] }.flatten.uniq
     @audiences = @lectures.collect { |r| r['Audience'] }.uniq
   end
 
   def digital
-    @digital = Digital.all
+    @digital = Digital.public
     @types = @digital.collect { |r| r['Type'] }.uniq
   end
 
