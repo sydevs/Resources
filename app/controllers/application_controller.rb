@@ -76,6 +76,10 @@ class ApplicationController < ActionController::Base
     @types = @digital.collect { |r| r['Type'] }.uniq
   end
 
+  def themes
+    @themes = Theme.public
+  end
+
   def download
     path = params[:file]
     filename = "#{File.basename(path)}.#{params[:format]}"

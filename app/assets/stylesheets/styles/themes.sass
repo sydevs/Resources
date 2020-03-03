@@ -1,0 +1,30 @@
+
+.themes
+  padding: 50px 25px
+  margin-bottom: 40px
+
+.theme-items
+  margin-bottom: 40px
+
+  .item
+    float: left
+    padding: 4px
+    margin: 0
+    margin-bottom: 0.5em
+
+    &:hover img
+      border-color: transparentize(black, 0.6)
+
+  .image
+    cursor: pointer
+
+  img
+    height: 150px !important
+    width: auto
+    border-color: transparentize(black, 0.9)
+    transition: border-color 0.25s ease
+
+  &::after
+    content: ''
+    display: block
+    clear: both

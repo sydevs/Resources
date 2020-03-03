@@ -30,14 +30,14 @@ html
             .sub.header This is a site for sahaj resources.
 
         .ui.category.secondary.pointing.menu
-          - %w[Materials Marketing Lectures Guides Images Documents Digital].each do |category|
+          - %w[Materials Marketing Lectures Guides Images Documents Digital Themes].each do |category|
             a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
               = category
 
         .ui.category.fluid.floating.dropdown.basic.button
           .text = action_name.titleize
           .menu
-            - %w[Materials Marketing Lectures Guides Images Documents Digital].each do |category|
+            - %w[Materials Marketing Lectures Guides Images Documents Digital Themes].each do |category|
               a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
                 = category
 

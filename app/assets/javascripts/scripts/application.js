@@ -1,4 +1,4 @@
-/* global $, Grid */
+/* global $, Grid, Item */
 /* exported Application */
 
 const Application = {
@@ -12,6 +12,8 @@ const Application = {
     
     if (grid) {
       Application.grid = new Grid(grid)
+    } else {
+      document.querySelectorAll('.js-item').forEach(item => { new Item(item) }) // eslint-disable-line no-new
     }
   },
 

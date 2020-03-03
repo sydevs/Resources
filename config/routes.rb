@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get :images, to: 'application#images'
   get :documents, to: 'application#documents'
   get :digital, to: 'application#digital'
+  get :themes, to: 'application#themes'
 
   get 'download/:file', as: :download_file, to: 'application#download'
   get 'submit/:type', as: :submit, to: 'application#submit'

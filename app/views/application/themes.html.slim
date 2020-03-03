@@ -1,0 +1,67 @@
+
+p.notice Below are set of resources that share the same visual theme.
+
+.themes
+  - @themes.each do |theme|
+    h2.ui.small.dividing.header = theme['Name']
+    p = theme['Description']
+
+    .theme-items
+      - theme.materials.each do |material|
+        .item class='js-item' data-tooltip=material['Name'] data-position='bottom center' data-variation='basic'
+          .ui.rounded.bordered.image
+            img src=material['Preview'][0]['thumbnails']['large']['url']
+
+          .ui.basic.modal class='js-modal'
+            i.close.icon
+            .header = material['Name']
+            .image.content
+              - if defined?(img.image src=material['Attachments'][0]['thumbnails']['large']['url'])
+                img.ui.rounded.image src=material['Attachments'][0]['thumbnails']['large']['url']
+              - else
+                img.ui.rounded.image src=material['Preview'][0]['thumbnails']['large']['url']
+              .description
+                .ui.basic.labels
+                  - if material['Format']
+                    .ui.label
+                      = material['Format']
+                  - if material['Purpose']
+                    .ui.label Purpose - #{material['Purpose']}
+                  - if material['Audience']
+                    .ui.label Audience - #{material['Audience']}
+
+                = simple_format material['Description']
+                .ui.small.header Download Links
+                ul.ui.list
+                  - material['Attachments'].each do |attachment|
+                    li.item
+                      a href=download_path(attachment['url']) target='_blank'
+                        = attachment['filename']
+                      |  - #{(attachment['size'] / 1.0.megabyte).round(2)}MB
+
+      - theme.marketing.each do |marketing|
+        .item class='js-item' data-tooltip=marketing['Name'] data-position='bottom center' data-variation='basic'
+          .ui.rounded.bordered.image
+            img src=marketing['Preview'][0]['thumbnails']['large']['url']
+
+          .ui.basic.modal class='js-modal'
+            i.close.icon
+            .header = marketing['Name']
+            .image.content
+              - if defined?(img.image src=marketing['Attachments'][0]['thumbnails']['large']['url'])
+                img.ui.rounded.image src=marketing['Attachments'][0]['thumbnails']['large']['url']
+              - else
+                img.ui.rounded.image src=marketing['Preview'][0]['thumbnails']['large']['url']
+              .description
+                .ui.basic.labels
+                  .ui.label
+                    = marketing['Format']
+
+                = simple_format marketing['Description']
+                .ui.small.header Download Links
+                ul.ui.list
+                  - marketing['Attachments'].each do |attachment|
+                    li.item
+                      a href=download_path(attachment['url']) target='_blank'
+                        = attachment['filename']
+                      |  - #{(attachment['size'] / 1.0.megabyte).round(2)}MB
