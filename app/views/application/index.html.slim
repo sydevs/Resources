@@ -13,7 +13,7 @@
         a.item href=url_for([name.downcase])
           .ui.basic.right.floated.label = info[:count]
           .content
-            .header = name.to_s.humanize
+            .header = translate("menu.#{name.to_s.parameterize}")
             .description = info[:description]
 
     .ui.very.relaxed.selection.list
@@ -21,7 +21,7 @@
         a.item href=url_for([name.downcase])
           .ui.basic.right.floated.label = info[:count]
           .content
-            .header = name.to_s.humanize
+            .header = translate("menu.#{name.to_s.parameterize}")
             .description = info[:description]
 
     .ui.hidden.section.divider

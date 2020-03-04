@@ -32,14 +32,14 @@ html
         .ui.category.secondary.pointing.menu
           - %w[Materials Marketing Lectures Guides Images Documents Digital Themes].each do |category|
             a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
-              = category
+              = translate("menu.#{category.parameterize}")
 
         .ui.category.fluid.floating.dropdown.basic.button
           .text = action_name.titleize
           .menu
             - %w[Materials Marketing Lectures Guides Images Documents Digital Themes].each do |category|
               a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
-                = category
+                = translate("menu.#{category.parameterize}")
 
         - if content_for?(:menu)
           .ui.stackable.text.filter.menu
