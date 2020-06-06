@@ -3,7 +3,7 @@ html
   head
     / Global site tag (gtag.js) - Google Analytics
     - if Rails.env.production?
-      script async src='https://www.googletagmanager.com/gtag/js?id=UA-147161167-2'
+      script async=true src='https://www.googletagmanager.com/gtag/js?id=UA-147161167-2'
       javascript:
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
