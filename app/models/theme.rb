@@ -1,6 +1,6 @@
 class Theme < Airrecord::Table
 
-  self.base_key = ENV['AIRTABLE_BASE']
+  self.base_key = 'appGIvouVhGQJi2PS' # Sahaj Resources Base
   self.table_name = 'Themes'
 
   has_many :materials, class: "Material", column: "Materials"
@@ -8,6 +8,10 @@ class Theme < Airrecord::Table
 
   def self.public
     all(view: "Published")
+  end
+
+  def self.filters
+    %w[]
   end
 
 end

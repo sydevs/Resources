@@ -1,22 +1,35 @@
 
-main#js-grid *
+#js-grid *
   transition: all 0.25s ease
 
 /* ===== MASONRY GRID ===== */
-main#js-grid[data-layout='masonry']
+#js-grid[data-layout='masonry']
   margin: auto
 
-  > .js-grid-sizer,
-  > .item
-    width: 100%
-    max-width: 360px
+  &:not([data-size=wide])
+    > .js-grid-sizer,
+    > .item
+      width: 100%
+      max-width: 360px
 
-    @media (min-width: 480px)
-      width: 50%
-      max-width: none
+      @media (min-width: 480px)
+        width: 50%
+        max-width: none
 
-    @media (min-width: 768px)
-      width: 233.35px
+      @media (min-width: 768px)
+        width: 233.35px
+
+  &[data-size=wide]
+    > .js-grid-sizer,
+    > .item
+      width: 100%
+
+      @media (min-width: 480px)
+        width: 50%
+        max-width: none
+
+      @media (min-width: 768px)
+        width: 240px
 
   > .item
     cursor: pointer

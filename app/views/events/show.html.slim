@@ -1,0 +1,57 @@
+
+- content_for(:title, @record['Name'])
+
+.ui.text.container
+  img.ui.fluid.image src=@record.banner_url
+  h1.ui.center.aligned.header
+    = @record['Name']
+    .sub.header = @record.dates
+
+  .ui.left.floated.secondary.segment
+    .ui.list
+      .item
+        i.calendar.alternate.icon
+        .content = @record.dates
+      - if @record['Location']
+        .item
+          i.map.marked.alternate.icon
+          .content = @record['Location']
+      .item
+        i.address.card.icon
+        .content
+          a href=@record.contact_url
+            = @record.contact_host
+            '  
+            i.right.arrow.icon
+
+  p = markdown @record['Description']
+
+  p
+    a.ui.primary.button href=@record.contact_url target='_blank'
+      | Learn More
+      i.right.arrow.icon
+
+.ui.hidden.divider
+
+.ui.container
+  .ui.horizontal.divider.header
+    i.image.icon
+    | Images
+
+  .ui.hidden.divider
+
+  .ui.doubling.stackable.four.column.grid
+    - @record.image_urls.each do |image_url|
+      .column
+        a href=image_url target='_blank'
+          .ui.rounded.bordered.image
+            img src=image_url
+
+  /main id='js-grid' data-layout='masonry'
+    .js-grid-sizer
+    - @record.image_urls.each do |image_url|
+      a.item href=image_url target='_blank'
+        .ui.rounded.bordered.image
+          img src=image_url
+
+.ui.hidden.section.divider

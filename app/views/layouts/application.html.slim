@@ -1,25 +1,8 @@
 doctype html
 html
-  head
-    / Global site tag (gtag.js) - Google Analytics
-    - if Rails.env.production?
-      script async=true src='https://www.googletagmanager.com/gtag/js?id=UA-147161167-2'
-      javascript:
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-147161167-2');
-
-    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
-    meta name='viewport' content='width=device-width, initial-scale=1'
-    title Resources
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = render 'layouts/favicons'
-  body class=action_name
-    - if !%w[index submit].include?(action_name)
+  = render 'layouts/head'
+  body class=[controller_name, action_name, 'resources']
+    - if action_name == 'index'
       .ui.hidden.divider
 
       .ui.header.container
@@ -35,22 +18,23 @@ html
               = translate("menu.#{category.parameterize}")
 
         .ui.category.fluid.floating.dropdown.basic.button
-          .text = action_name.titleize
+          .text = controller_name.titleize
           .menu
             - %w[Materials Marketing Lectures Guides Images Documents Digital Themes].each do |category|
               a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
                 = translate("menu.#{category.parameterize}")
 
-        - if content_for?(:menu)
+        - if @filters
           .ui.stackable.text.filter.menu
             .header.item Showing Items For
-            = content_for(:menu)
+            - @filters.each do |filter, values|
+              = filter_tag filter, values
 
-            - if submission_form_url(action_name)
+            - if submission_form_url(controller_name)
               .right.menu
-                a.item href=submit_path(type: action_name) target='_blank'
+                a.item href=submit_path(type: controller_name) target='_blank'
                   i.upload.icon
-                  | Submit #{action_name.humanize.singularize}
+                  | Submit #{controller_name.humanize.singularize}
 
       .ui.container
         = yield

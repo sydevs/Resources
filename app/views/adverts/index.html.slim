@@ -1,0 +1,32 @@
+
+main id='js-grid' data-layout='masonry'
+  .js-grid-sizer
+
+  - @records.each do |advert|
+    .item class=item_classes(advert, %w[Format])
+      .ui.rounded.bordered.image
+        img src=advert['Preview'][0]['thumbnails']['large']['url']
+      .title
+        = advert['Name']
+
+      .ui.basic.modal class='js-modal'
+        i.close.icon
+        .header = advert['Name']
+        .image.content
+          - if defined?(img.image src=advert['Attachments'][0]['thumbnails']['large']['url'])
+            img.ui.rounded.image src=advert['Attachments'][0]['thumbnails']['large']['url']
+          - else
+            img.ui.rounded.image src=advert['Preview'][0]['thumbnails']['large']['url']
+          .description
+            .ui.basic.labels
+              .ui.label class=color_by_index(advert['Format'], @filters['Format'])
+                = advert['Format']
+
+            = simple_format advert['Description']
+            .ui.small.header Download Links
+            ul.ui.list
+              - advert['Attachments'].each do |attachment|
+                li.item
+                  a href=download_path(attachment['url']) target='_blank'
+                    = attachment['filename']
+                  |  - #{(attachment['size'] / 1.0.megabyte).round(2)}MB

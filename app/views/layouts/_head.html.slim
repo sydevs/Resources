@@ -1,0 +1,23 @@
+
+head
+  / Global site tag (gtag.js) - Google Analytics
+  - if Rails.env.production?
+    /!-- Fathom - beautiful, simple website analytics
+    script src="https://cdn.usefathom.com/script.js" data-site="RKNOUWCF" defer=true
+    /!-- / Fathom
+  - elsif false
+    script async=true src='https://www.googletagmanager.com/gtag/js?id=UA-147161167-2'
+    javascript:
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-147161167-2');
+
+  meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+  meta name='viewport' content='width=device-width, initial-scale=1'
+  title = content_for(:title) || local_assigns[:title] || "Sahaj Resources"
+  = csrf_meta_tags
+  = csp_meta_tag
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = render 'layouts/favicons'

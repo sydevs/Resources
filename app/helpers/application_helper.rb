@@ -24,6 +24,7 @@ module ApplicationHelper
     marketing: 'https://airtable.com/embed/shrMButMgMmKxHYgw',
     materials: 'https://airtable.com/embed/shrXsEa3X2DQZZMqg',
     contact: 'https://airtable.com/shr15CoKu6d56V10b',
+    events: 'https://airtable.com/shrpZkm9vcW0S4Bk2',
   }.freeze
 
   def color_by_index key, order

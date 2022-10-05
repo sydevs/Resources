@@ -1,13 +1,8 @@
 
-- content_for(:menu) do
-  = filter_tag 'Format', @formats
-  = filter_tag 'Purpose', @purposes
-  = filter_tag 'Audience', @audiences
-
 main id='js-grid' data-layout='masonry'
   .js-grid-sizer
 
-  - @materials.each do |material|
+  - @records.each do |material|
     .item class=item_classes(material, %w[Format Purpose Audience])
       .ui.rounded.bordered.image
         img src=material['Preview'][0]['thumbnails']['large']['url']
@@ -25,7 +20,7 @@ main id='js-grid' data-layout='masonry'
           .description
             .ui.basic.labels
               - if material['Format']
-                .ui.label class=color_by_index(material['Format'], @formats)
+                .ui.label class=color_by_index(material['Format'], @filters['Format'])
                   = material['Format']
               - if material['Purpose']
                 .ui.label Purpose - #{material['Purpose']}

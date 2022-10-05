@@ -1,0 +1,12 @@
+
+main.ui.relaxed.selection.list id='js-grid' data-layout='vertical'
+  - @records.each do |project|
+    a.item class=item_classes(project, %w[Type]) href=project['Web URL'] target='_blank'
+      .right.floated.content
+        .ui.basic.mini.label class=color_by_index(project['Type'], @filters['Type'])
+          = project['Type']
+      img.ui.image src=project['Icon'][0]['thumbnails']['small']['url']
+      .content
+        .header = project['Name']
+        .meta = URI.parse(project['Web URL']).hostname
+        .description = project['Description']

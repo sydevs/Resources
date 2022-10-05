@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   caches_action :download, :submit
 
-  def index
+  def home
     @resources = {
       materials: {
         description: "For giving public programs, exhibitions, and other presentations. \"How to meditate at home\" booklets, treatment handouts, materials for children, exhibitions, slideshows, chakra charts, etc.",
@@ -90,7 +90,7 @@ class ApplicationController < ActionController::Base
   end
 
   def submit
-    # Do nothing
+    @submit_url = helpers.submission_form_url(params[:type])
   end
 
 end

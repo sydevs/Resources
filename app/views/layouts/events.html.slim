@@ -1,0 +1,31 @@
+doctype html
+html
+  = render 'layouts/head', title: 'Sahaj Events'
+  body class=[controller_name, action_name]
+    - if action_name == 'index'
+      .ui.hidden.divider
+
+      .ui.header.container
+        a.ui.small.header href=root_url
+          i.seedling.icon
+          .content
+            | Sahaj Events
+            .sub.header This is a site for sahaj events.
+
+        .ui.divider
+
+        - if @filters
+          .ui.stackable.text.filter.menu
+            .header.item Showing Items For
+            - @filters.each do |filter, values|
+              = filter_tag filter, values
+
+            .right.menu
+              a.item href=submit_path(type: :events) target='_blank'
+                i.upload.icon
+                | Submit Event
+
+      .ui.container
+        = yield
+    - else
+      = yield

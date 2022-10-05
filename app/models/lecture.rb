@@ -1,10 +1,14 @@
 class Lecture < Airrecord::Table
 
-  self.base_key = ENV['AIRTABLE_BASE']
+  self.base_key = 'appGIvouVhGQJi2PS' # Sahaj Resources Base
   self.table_name = 'Lectures'
 
   def self.public
     all(view: "Published")
+  end
+
+  def self.filters
+    %w[Topics Audience]
   end
 
   def youtube_id

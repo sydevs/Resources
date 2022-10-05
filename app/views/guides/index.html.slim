@@ -1,11 +1,8 @@
 
-- content_for(:menu) do
-  = filter_tag 'Topics', @topics
-
 /p.notice These are guides on specific topics to help with the spread of Sahaja Yoga.
 
 main.ui.relaxed.selection.list id='js-grid' data-layout='vertical'
-  - @guides.each do |guide|
+  - @records.each do |guide|
     a.item class=item_classes(guide, [], %w[Topics]) href=download_path(guide['Document'][0]['url']) target='_blank'
       .content
         .header

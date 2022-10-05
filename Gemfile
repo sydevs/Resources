@@ -15,6 +15,7 @@ gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application fast
 
 gem 'actionpack-action_caching' # To cache Airtable downloads
 gem 'airrecord' # Use Airtable as the database
+gem 'redcarpet' # For rendering markdown from Airtable
 gem 'fomantic-ui-sass' # Use Fomantic/Semantic as css framework
 gem 'mime-types' # To identify mime-types for files from Airtable
 
