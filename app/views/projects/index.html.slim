@@ -1,7 +1,7 @@
 
 main.ui.relaxed.selection.list id='js-grid' data-layout='vertical'
   - @records.each do |project|
-    a.item class=item_classes(project, %w[Type]) href=project['Web URL'] target='_blank'
+    a.item class=item_classes(project, Project.filters) href=project['Web URL'] target='_blank'
       .right.floated.content
         .ui.basic.mini.label class=color_by_index(project['Type'], @filters['Type'])
           = project['Type']

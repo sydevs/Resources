@@ -1,36 +1,42 @@
 
 .ui.text.container
-  .ui.basic.center.aligned.segment
-    .ui.icon.header
+  .ui.basic.segment
+    .ui.center.aligned.icon.header
       i.seedling.icon
       | Sahaj Resources Catalog
       .sub.header This is a website for resources for spreading Sahaja Yoga.
 
     .ui.section.divider
 
-    .ui.very.relaxed.selection.list
-      - @resources.first(3).each do |name, info|
-        a.item href=url_for([name.downcase])
-          .ui.basic.right.floated.label = info[:count]
-          .content
-            .header = translate("menu.#{name.to_s.parameterize}")
-            .description = info[:description]
+    .ui.stackable.two.columns.grid
+      .column
+        .ui.very.relaxed.selection.list
+          - @resources.first(4).each do |name, info|
+            a.item href=url_for([name])
+              .ui.basic.right.floated.label = info[:count]
+              .content
+                .header = translate("menu.#{name.to_s.parameterize}")
+                .description = info[:description]
 
-    .ui.very.relaxed.selection.list
-      - @resources.drop(3).each do |name, info|
-        a.item href=url_for([name.downcase])
-          .ui.basic.right.floated.label = info[:count]
-          .content
-            .header = translate("menu.#{name.to_s.parameterize}")
-            .description = info[:description]
+      .column
+        .ui.very.relaxed.selection.list
+          - @resources.drop(4).each do |name, info|
+            a.item href=url_for([name])
+              .ui.basic.right.floated.label = info[:count]
+              .content
+                .header = translate("menu.#{name.to_s.parameterize}")
+                .description = info[:description]
 
     .ui.hidden.divider
 
     .ui.icon.message
-      i.leaf.icon
+      i.sun.icon
       .content
-        .header Welcome to the new Sahaja Resources website
-        p Sahaja Resources has been updated with a new simpler navigation, and the resources have been curated to include only professional quality designs. Please click one of the categories above to find what you are looking for.
+        .header Introducing Sahaj Events
+        p We've just added a new section listing upcoming realisation events (tours, expos, festivals, etc) and seminars (international pujas, yuva seminars, etc)
+        a.ui.button href=events_path
+          ' Check it out 
+          i.right.arrow.icon
     
-    p: em The resources from the website are being updated and transferred to the new site - but many are outdated or not useful. Please send us an email and let us know about any specific resources that you would like to see transferred. The old website can be accessed at <a href="http://sahajaresourcescom.ipage.com" target="_blank">sahajaresourcescom.ipage.com</a>.
-    p: em Write to <a href="mailto:contact@sydevelopers.com">contact@sydevelopers.com</a> if you have any questions.
+    /p: em The resources from the website are being updated and transferred to the new site - but many are outdated or not useful. Please send us an email and let us know about any specific resources that you would like to see transferred. The old website can be accessed at <a href="http://sahajaresourcescom.ipage.com" target="_blank">sahajaresourcescom.ipage.com</a>.
+    /p: em Write to <a href="mailto:contact@sydevelopers.com">contact@sydevelopers.com</a> if you have any questions.

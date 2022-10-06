@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get :submit, on: :collection
   end
 
-  %i[adverts materials lectures guides images documents projects theme].each do |model|
+  %i[adverts materials lectures guides images documents projects themes].each do |model|
     resources model, only: %i[index] do
       get :submit, on: :collection
     end

@@ -4,7 +4,7 @@ class Theme < Airrecord::Table
   self.table_name = 'Themes'
 
   has_many :materials, class: "Material", column: "Materials"
-  has_many :marketing, class: "Marketing", column: "Marketing"
+  has_many :marketing, class: "Advert", column: "Advert"
 
   def self.public
     all(view: "Published")

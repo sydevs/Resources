@@ -3,7 +3,7 @@ main id='js-grid' data-layout='masonry'
   .js-grid-sizer
 
   - @records.each do |material|
-    .item class=item_classes(material, %w[Format Purpose Audience])
+    .item class=item_classes(material, Material.filters)
       .ui.rounded.bordered.image
         img src=material['Preview'][0]['thumbnails']['large']['url']
       .title

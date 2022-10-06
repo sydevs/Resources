@@ -13,15 +13,15 @@ html
             .sub.header This is a site for sahaj resources.
 
         .ui.category.secondary.pointing.menu
-          - %w[Materials Marketing Lectures Guides Images Documents Digital Themes].each do |category|
-            a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
+          - %w[Materials Adverts Lectures Guides Images Documents Projects Themes].each do |category|
+            a.item href=url_for(category.parameterize) class=('active' if category.parameterize == controller_name)
               = translate("menu.#{category.parameterize}")
 
         .ui.category.fluid.floating.dropdown.basic.button
           .text = controller_name.titleize
           .menu
-            - %w[Materials Marketing Lectures Guides Images Documents Digital Themes].each do |category|
-              a.item href=url_for(category.parameterize) class=('active' if category.parameterize == action_name)
+            - %w[Materials Adverts Lectures Guides Images Documents Projects Themes].each do |category|
+              a.item href=url_for(category.parameterize) class=('active' if category.parameterize == controller_name)
                 = translate("menu.#{category.parameterize}")
 
         - if @filters
