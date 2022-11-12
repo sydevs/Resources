@@ -34,7 +34,8 @@ module ApplicationHelper
   def download_path attachment
     file = attachment['url']
     file.slice!('https://v5.airtableusercontent.com/')
-    download_file_path(file: file, name: attachment['filename'], type: attachment['type'])
+    format = attachment['type'].split('/').last
+    download_file_path(format: format, file: file, name: attachment['filename'], type: attachment['type'])
   end
 
   def submission_form_url type
