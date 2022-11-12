@@ -3,7 +3,7 @@ p.notice This is a listing of research papers on the benefits of Sahaja Yoga.
 
 main.ui.very.relaxed.selection.list id='js-grid' data-layout='vertical'
   - @records.each do |document|
-    a.item class=item_classes(document, %w[Type]) href=download_path(document['Attachments'][0]['url']) target='_blank'
+    a.item class=item_classes(document, %w[Type]) href=download_path(document['Attachments'][0]) target='_blank'
       .header = document['Name']
       .meta
         span.authors = document['Year']

@@ -27,6 +27,6 @@ main id='js-grid' data-layout='masonry'
             ul.ui.list
               - advert['Attachments'].each do |attachment|
                 li.item
-                  a href=download_path(attachment['url']) target='_blank'
+                  a href=download_path(attachment) target='_blank'
                     = attachment['filename']
                   |  - #{(attachment['size'] / 1.0.megabyte).round(2)}MB

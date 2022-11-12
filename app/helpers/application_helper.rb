@@ -31,9 +31,10 @@ module ApplicationHelper
     COLORS[order.index(key)]
   end
 
-  def download_path file
-    file.slice!('https://dl.airtable.com/.attachments/')
-    download_file_path(file: file)
+  def download_path attachment
+    file = attachment['url']
+    file.slice!('https://v5.airtableusercontent.com/')
+    download_file_path(file: file, name: attachment['filename'], type: attachment['type'])
   end
 
   def submission_form_url type

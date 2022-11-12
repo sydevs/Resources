@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'download/:file', as: :download_file, to: 'application#download'
+  get 'download', as: :download_file, to: 'application#download'
   get 'submit/:type', as: :submit, to: 'application#submit'
 end

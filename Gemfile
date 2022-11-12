@@ -17,7 +17,7 @@ gem 'actionpack-action_caching' # To cache Airtable downloads
 gem 'airrecord' # Use Airtable as the database
 gem 'redcarpet' # For rendering markdown from Airtable
 gem 'fomantic-ui-sass' # Use Fomantic/Semantic as css framework
-gem 'mime-types' # To identify mime-types for files from Airtable
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f' # Setup source for mime-types depdendency
 
 group :development, :test do
   gem 'dotenv-rails' # Auto-load environmental variables

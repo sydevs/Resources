@@ -44,11 +44,8 @@ class ApplicationController < ActionController::Base
 
   def download
     path = params[:file]
-    fmt = params[:format].split('?').first
-    filename = "#{File.basename(path)}.#{fmt}"
-    type = MIME::Types.type_for(filename).first.content_type
-    data = Net::HTTP.get(URI.parse("https://dl.airtable.com/.attachments/#{path}.#{fmt}"))
-    send_data data, filename: filename, type: type, disposition: 'inline'
+    data = Net::HTTP.get(URI.parse("https://v5.airtableusercontent.com/#{path}"))
+    send_data data, filename: params[:name], type: params[:type], disposition: 'inline'
   end
 
   def submit

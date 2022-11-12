@@ -35,7 +35,7 @@ p.notice Below are set of resources that share the same visual theme.
                 ul.ui.list
                   - material['Attachments'].each do |attachment|
                     li.item
-                      a href=download_path(attachment['url']) target='_blank'
+                      a href=download_path(attachment) target='_blank'
                         = attachment['filename']
                       |  - #{(attachment['size'] / 1.0.megabyte).round(2)}MB
 
@@ -62,6 +62,6 @@ p.notice Below are set of resources that share the same visual theme.
                 ul.ui.list
                   - marketing['Attachments'].each do |attachment|
                     li.item
-                      a href=download_path(attachment['url']) target='_blank'
+                      a href=download_path(attachment) target='_blank'
                         = attachment['filename']
                       |  - #{(attachment['size'] / 1.0.megabyte).round(2)}MB
