@@ -44,8 +44,9 @@ class ApplicationController < ActionController::Base
 
   def download
     path = params[:file]
-    data = Net::HTTP.get(URI.parse("https://v5.airtableusercontent.com/#{path}"))
-    send_data data, filename: params[:name], type: params[:type], disposition: 'inline'
+    redirect_to "https://v5.airtableusercontent.com/#{path}"
+    # data = Net::HTTP.get(URI.parse("https://v5.airtableusercontent.com/#{path}"))
+    # send_data data, filename: params[:name], type: params[:type], disposition: 'inline'
   end
 
   def submit
