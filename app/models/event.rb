@@ -20,7 +20,13 @@ class Event < Airrecord::Table
   end
 
   def dates
-    [self['Start Date'], self['End Date']].map{ |d| Date.parse(d).strftime('%d %B') }.join(' - ')
+    return nil unless self['Start Date'].present?
+
+    if self['End Date'].present?
+      [self['Start Date'], self['End Date']].map{ |d| Date.parse(d).strftime('%d %B') }.join(' - ')
+    else
+      Date.parse(self['Start Date']).strftime('%B')
+    end
   end
 
   def thumbnail_url
