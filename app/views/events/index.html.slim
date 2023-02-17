@@ -13,8 +13,9 @@ main id='js-grid' data-layout='masonry' data-size='wide'
           .meta
             a href=event.contact_url
               = event.contact_host
-          .description
-            = event['Excerpt']
+          - if event['Excerpt']
+            .description
+              = event['Excerpt']
         .extra.content
           span = event.dates
         a.ui.bottom.attached.button href=event_path(event.id) target='_blank'
