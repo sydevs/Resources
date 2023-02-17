@@ -5,7 +5,7 @@ main id='js-grid' data-layout='masonry' data-size='wide'
   - @records.each do |event|
     .item class=item_classes(event, %w[Type])
       .ui.card
-        - if event.thumbnail_url
+        - if event.thumbnail_url && event['Excerpt']
           .image
             img src=event.thumbnail_url
         .content
