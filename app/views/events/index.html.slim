@@ -3,9 +3,11 @@ main id='js-grid' data-layout='masonry' data-size='wide'
   .js-grid-sizer
 
   - @records.each do |event|
+    - mini = event['Type'] == 'International Puja' && !event['Excerpt']
+
     .item class=item_classes(event, %w[Type])
       .ui.card
-        - if event.thumbnail_url && event['Excerpt']
+        - if event.thumbnail_url && !mini
           .image
             img src=event.thumbnail_url
         .content
@@ -13,11 +15,14 @@ main id='js-grid' data-layout='masonry' data-size='wide'
           .meta
             a href=event.contact_url
               = event.contact_host
+            - if mini
+              div = event.dates
           - if event['Excerpt']
             .description
               = event['Excerpt']
-        .extra.content
-          span = event.dates
-        a.ui.bottom.attached.button href=event_path(event.id) target='_blank'
-          | Learn More
-          i.right.arrow.icon
+        - unless mini
+          .extra.content
+            span = event.dates
+          a.ui.bottom.attached.button href=event_path(event.id) target='_blank'
+            | Learn More
+            i.right.arrow.icon
