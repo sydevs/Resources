@@ -3,7 +3,7 @@ main id='js-grid' data-layout='masonry' data-size='wide'
   .js-grid-sizer
 
   - @records.each do |event|
-    - mini = event['Type'] == 'International Puja' && !event['Excerpt']
+    - mini = !event['Excerpt']
 
     .item class=item_classes(event, %w[Type])
       .ui.card
