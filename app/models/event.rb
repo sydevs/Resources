@@ -16,7 +16,9 @@ class Event < Airrecord::Table
   end
 
   def contact_host
-    URI.parse(self['Website or Email'])&.host
+    return nil unless contact_url.present?
+
+    URI.parse(contact_url)&.host
   end
 
   def dates
