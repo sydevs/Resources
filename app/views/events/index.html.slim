@@ -13,8 +13,9 @@ main id='js-grid' data-layout='masonry' data-size='wide'
         .content
           .header = event['Name']
           .meta
-            a href=event.contact_url
-              = event.contact_host
+            - if event.contact_url
+              a href=event.contact_url
+                = event.contact_host
             - if mini
               div = event.dates
           - if event['Excerpt']
@@ -22,7 +23,7 @@ main id='js-grid' data-layout='masonry' data-size='wide'
               = event['Excerpt']
         - unless mini
           .extra.content
-            span = event.dates
+            span = event.dates ? event.dates : 'TBD'
           a.ui.bottom.attached.button href=event_path(event.id) target='_blank'
             | Learn More
             i.right.arrow.icon
