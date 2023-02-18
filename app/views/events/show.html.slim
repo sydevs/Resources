@@ -16,13 +16,14 @@
         .item
           i.map.marked.alternate.icon
           .content = @record['Location']
-      .item
-        i.address.card.icon
-        .content
-          a href=@record.contact_url
-            = @record.contact_host
-            '  
-            i.right.arrow.icon
+      - if @record.contact_url
+        .item
+          i.address.card.icon
+          .content
+            a href=@record.contact_url
+              = @record.contact_host
+              '  
+              i.right.arrow.icon
 
   p = markdown @record['Description']
 
