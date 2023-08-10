@@ -16,15 +16,15 @@ module ApplicationHelper
   ].freeze
 
   SUBMISSION_URLS = {
-    digital: 'https://airtable.com/shrrFcZEaxJCjoWzP',
-    documents: 'https://airtable.com/shrbjcZF4xOyDg3Rq',
+    digital: 'https://airtable.com/embed/appGIvouVhGQJi2PS/shrrFcZEaxJCjoWzP',
+    documents: 'https://airtable.com/embed/appGIvouVhGQJi2PS/shrbjcZF4xOyDg3Rq',
     guides: '',
-    images: 'https://airtable.com/shr6gMLDcKXvS02vA',
-    lectures: 'https://airtable.com/embed/shryw0V7ZaCEzQf7a',
-    marketing: 'https://airtable.com/embed/shrMButMgMmKxHYgw',
-    materials: 'https://airtable.com/embed/shrXsEa3X2DQZZMqg',
-    contact: 'https://airtable.com/shr15CoKu6d56V10b',
-    events: 'https://airtable.com/shrpZkm9vcW0S4Bk2',
+    images: 'https://airtable.com/embed/appGIvouVhGQJi2PS/shr6gMLDcKXvS02vA',
+    lectures: 'https://airtable.com/embed/appGIvouVhGQJi2PS/shryw0V7ZaCEzQf7a',
+    marketing: 'https://airtable.com/embed/appGIvouVhGQJi2PS/shrMButMgMmKxHYgw',
+    materials: 'https://airtable.com/embed/appGIvouVhGQJi2PS/shrXsEa3X2DQZZMqg',
+    contact: 'https://airtable.com/embed/appGIvouVhGQJi2PS/shr15CoKu6d56V10b',
+    events: 'https://airtable.com/embed/appGIvouVhGQJi2PS/shrpZkm9vcW0S4Bk2',
   }.freeze
 
   def color_by_index key, order
