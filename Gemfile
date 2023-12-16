@@ -19,6 +19,8 @@ gem 'redcarpet' # For rendering markdown from Airtable
 gem 'fomantic-ui-sass' # Use Fomantic/Semantic as css framework
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f' # Setup source for mime-types depdendency
 
+gem "matrix", "~> 0.4.2" # Required after upgrade to ruby 3.1
+
 group :development, :test do
   gem 'dotenv-rails' # Auto-load environmental variables
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,5 +46,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-# Force update
