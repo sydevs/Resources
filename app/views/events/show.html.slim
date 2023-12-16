@@ -16,7 +16,7 @@
         .item
           i.map.marked.alternate.icon
           .content = @record['Location']
-      - if @record.contact_url
+      - if @record.contact_url && valid_url?(event.contact_url)
         .item
           i.address.card.icon
           .content
