@@ -3,11 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.4'
 
-gem 'puma', '~> 3.12' # Use Puma as the app server
-gem 'rails', '~> 5.2.3' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'puma' # Use Puma as the app server
+gem 'rails', '~> 7.0.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'sass-rails' # Use SCSS for stylesheets
 gem 'slim-rails' # Use Slim for html preprocessing
-gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
+gem 'uglifier' # Use Uglifier as compressor for JavaScript assets
 
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'jquery-rails'
@@ -16,7 +16,7 @@ gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application fast
 gem 'actionpack-action_caching' # To cache Airtable downloads
 gem 'airrecord' # Use Airtable as the database
 gem 'redcarpet' # For rendering markdown from Airtable
-gem 'fomantic-ui-sass' # Use Fomantic/Semantic as css framework
+gem 'fomantic-ui-sass', '~> 2.8.3' # Use Fomantic/Semantic as css framework
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f' # Setup source for mime-types depdendency
 
 gem "matrix", "~> 0.4.2" # Required after upgrade to ruby 3.1
@@ -29,7 +29,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  # gem 'listen'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
