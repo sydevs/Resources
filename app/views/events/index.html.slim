@@ -13,7 +13,7 @@ main id='js-grid' data-layout='masonry' data-size='wide'
         .content
           .header = event['Name']
           .meta
-            - if event.contact_url
+            - if event.contact_url && valid_url?(event.contact_url)
               a href=event.contact_url
                 = event.contact_host
             - if mini

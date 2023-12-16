@@ -90,4 +90,10 @@ module ApplicationHelper
     (PRIORITY_TOPICS & topics) + other_topics
   end
 
+  def valid_url?(uri)
+    uri = URI.parse(uri) && uri.host.present?
+  rescue URI::InvalidURIError
+    false
+  end
+
 end
