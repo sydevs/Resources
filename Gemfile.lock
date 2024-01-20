@@ -85,9 +85,8 @@ GEM
       io-like (~> 0.3.0)
     autoprefixer-rails (10.4.16.0)
       execjs (~> 2)
-    base64 (0.2.0)
     bindex (0.8.1)
-    bootsnap (1.17.0)
+    bootsnap (1.17.1)
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
@@ -103,7 +102,7 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
@@ -113,11 +112,10 @@ GEM
       railties (>= 3.2)
     erubi (1.12.0)
     execjs (2.9.1)
-    faraday (2.7.12)
-      base64
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
-    faraday-net_http (3.0.2)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
     faraday-net_http_persistent (2.1.0)
       faraday (~> 2.5)
       net-http-persistent (~> 4.0)
@@ -152,34 +150,36 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.5)
-    minitest (5.20.0)
+    minitest (5.21.2)
     msgpack (1.7.2)
+    net-http (0.4.1)
+      uri
     net-http-persistent (4.0.2)
       connection_pool (~> 2.2)
-    net-imap (0.4.8)
+    net-imap (0.4.9.1)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-smtp (0.4.0)
+    net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.15.5-aarch64-linux)
+    nokogiri (1.16.0-aarch64-linux)
       racc (~> 1.4)
-    nokogiri (1.15.5-arm-linux)
+    nokogiri (1.16.0-arm-linux)
       racc (~> 1.4)
-    nokogiri (1.15.5-arm64-darwin)
+    nokogiri (1.16.0-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.15.5-x86-linux)
+    nokogiri (1.16.0-x86-linux)
       racc (~> 1.4)
-    nokogiri (1.15.5-x86_64-darwin)
+    nokogiri (1.16.0-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.15.5-x86_64-linux)
+    nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
     public_suffix (5.0.4)
-    puma (6.4.0)
+    puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (2.2.8)
@@ -218,9 +218,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.6.0)
-    regexp_parser (2.8.3)
+    regexp_parser (2.9.0)
     rexml (3.2.6)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -265,6 +264,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    uri (0.13.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -312,7 +312,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 3.1.4p223
+   ruby 3.3.0p0
 
 BUNDLED WITH
-   2.5.1
+   2.5.4
