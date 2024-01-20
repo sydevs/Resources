@@ -91,7 +91,8 @@ module ApplicationHelper
   end
 
   def valid_url?(uri)
-    uri = URI.parse(uri) && uri.host.present?
+    uri = URI.parse(uri)
+    uri.host.present?
   rescue URI::InvalidURIError
     false
   end
